@@ -1,12 +1,23 @@
 version: '3.3'
 services:
+  dev-ssl:
+    build:
+      context: .
+      dockerfile: docker/dev-ssl/Dockerfile
+    restart: "no"
+    volumes:
+      - ./data/ssl/certs:/etc/ssl/certs
+      - ./docker/dev-ssl/docker-entrypoint.sh:/docker-entrypoint.sh
+
   pier-buoy:
     image: nginx:1.12.1-alpine
     restart: always
     volumes:
-      - ./docker/web-proxy/nginx/conf.d:/etc/nginx/conf.d/
+      - ./data/ssl/certs:/etc/ssl/certs
+      - ./docker/web-proxy/nginx/conf.d:/etc/nginx/conf.d
     ports:
       - "80:80"
+      - "443:443"
 
 networks:
   default:
