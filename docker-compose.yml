@@ -10,7 +10,7 @@ services:
       - ./docker/dev-ssl/docker-entrypoint.sh:/docker-entrypoint.sh
 
   pier-buoy:
-    image: nginx:1.12.1-alpine
+    image: nginx:1.13.12-alpine
     restart: always
     volumes:
       - ./data/ssl/certs:/etc/ssl/certs
