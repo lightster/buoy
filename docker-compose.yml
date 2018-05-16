@@ -8,6 +8,8 @@ services:
     volumes:
       - ./data/ssl/certs:/etc/ssl/certs
       - ./docker/dev-ssl/docker-entrypoint.sh:/docker-entrypoint.sh
+    environment:
+      - DOMAIN
 
   pier-buoy:
     image: nginx:1.13.12-alpine
