@@ -1,6 +1,7 @@
 #!/bin/sh
 
 COMMAND="$1"
+DOMAIN="${DOMAIN:-p.com}"
 
 case "${COMMAND}" in
 
@@ -15,7 +16,7 @@ case "${COMMAND}" in
         openssl genrsa -out "dev.key" 4096
 
         openssl req -new -key "dev.key" -out "dev.csr" -sha256 \
-            -subj '/C=US/ST=CA/L=Irvine/O=Developer/CN=*.p.com'
+            -subj "/C=US/ST=CA/L=Irvine/O=Developer/CN=*.${DOMAIN}"
 
         openssl x509 -req -days 750 -in "dev.csr" -signkey "dev.key" -sha256 \
             -out "dev.crt" -extensions server
