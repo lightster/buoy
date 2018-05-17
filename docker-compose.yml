@@ -17,6 +17,7 @@ services:
     volumes:
       - ./data/ssl/certs:/etc/ssl/certs
       - ./docker/web-proxy/nginx/conf.d:/etc/nginx/conf.d
+      - ./:/etc/nginx/map.d
     ports:
       - "80:80"
       - "443:443"
