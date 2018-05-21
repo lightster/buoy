@@ -69,14 +69,14 @@ By default, the base domain is `b.com`.  You can change this to something else, 
 
 ### Setting destination service ports
 
-Some web services expose ports other than port 80 and/or 443.  You can tell Buoy to connect to a specific port of your service by creating a `subdomain-port.local.map` file in the `buoy` root directory and listing the subdomain-port mappings like so:
+Some web services expose ports other than port 80 and/or 443.  You can tell Buoy to connect to a specific port of your service by creating a `subdomain-port.local.map` file in the `buoy` root directory and mapping subdomains to ports like so:
 ```nginx
 "user"     "8080";
 "jekyll"   "4000";
 "rabbitmq" "15672";
 ```
 
-You will need to restart buoy after making subdomain-port mappings:
+You will need to restart buoy after making subdomain-port mapping changes:
 ```bash
 docker-compose restart buoy
 ```
