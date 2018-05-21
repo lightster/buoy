@@ -1,7 +1,7 @@
 #!/bin/sh
 
 COMMAND="$1"
-DOMAIN="${DOMAIN:-p.com}"
+DOMAIN="${DOMAIN:-b.com}"
 
 case "${COMMAND}" in
 
