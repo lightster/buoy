@@ -6,7 +6,7 @@ Buoy is a Docker service that allows for multiple Docker-based web services to s
 
 ## Installation
 
-Installation of Buoy is fairly straightforward.
+Installation of Buoy is fairly straightforward:
 
 ```bash
 git clone git@github.com:lightster/buoy.git
@@ -64,7 +64,7 @@ By default, the base domain is `b.com`.  You can change this to something else, 
     ```
  3. Restart buoy with a new self-signed SSL cert for the new domain by running:
     ```bash
-    `make reinstall`
+    make reinstall
     ```
 
 ### Setting destination service ports
