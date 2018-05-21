@@ -11,7 +11,7 @@ services:
     environment:
       - DOMAIN
 
-  pier-buoy:
+  buoy:
     image: nginx:1.13.12-alpine
     restart: always
     volumes:
@@ -25,4 +25,4 @@ services:
 networks:
   default:
     external:
-      name: pier-buoy
+      name: buoy
