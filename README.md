@@ -80,3 +80,5 @@ You will need to restart buoy after making subdomain-port mapping changes:
 ```bash
 docker-compose restart buoy
 ```
+
+The service will be accessed from a web browser through the implicit port 80 or 443, for HTTP and HTTPS respectively, but Buoy will now know to connect to your service on the port you identified in the subdomain-port map file.
