@@ -1,9 +1,9 @@
 FROM alpine:3.7
 
 RUN apk add --no-cache \
-        openssl
+        bash openssl
 
-ENTRYPOINT ["/bin/sh", "/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["generate"]
 
 WORKDIR /
