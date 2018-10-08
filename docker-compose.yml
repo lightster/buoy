@@ -1,13 +1,10 @@
 version: '3.3'
 services:
   dev-ssl:
-    build:
-      context: .
-      dockerfile: docker/dev-ssl/Dockerfile
+    image: lightster/dev-ssl:0.1.0
     restart: "no"
     volumes:
-      - ./data/ssl/certs:/etc/ssl/certs
-      - ./docker/dev-ssl/docker-entrypoint.sh:/docker-entrypoint.sh
+      - ./data/ssl/certs:/cert
     environment:
       - DOMAIN
 
