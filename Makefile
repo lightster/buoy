@@ -5,8 +5,11 @@ install:
 	docker-compose up --detach --force-recreate
 
 reinstall:
-	rm data/ssl/certs/dev.crt
+	rm -f data/ssl/certs/dev.crt
 	$(MAKE) install
 
 data/ssl/certs/dev.crt:
-	docker-compose run --rm dev-ssl generate
+	docker-compose run --rm dev-ssl
+	sudo security add-trusted-cert -d -r trustRoot \
+		-k /Library/Keychains/System.keychain \
+		data/ssl/certs/dev.crt
