@@ -6,18 +6,20 @@ services:
     volumes:
       - ./data/ssl/certs:/cert
     environment:
-      - DOMAIN
+      DOMAIN: ${DOMAIN:-b.com}
 
   buoy:
-    image: nginx:1.13.12-alpine
-    restart: always
+    image: kelvineducation/nginx-envsubst:0.2.1
+    restart: unless-stopped
     volumes:
       - ./data/ssl/certs:/etc/ssl/certs
-      - ./docker/web-proxy/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/web-proxy/nginx/conf.d/home.conf:/etc/nginx/conf.d/home.conf.envsubst
       - ./:/etc/nginx/map.d
     ports:
       - "80:80"
       - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:-b.com}
 
 networks:
   default:
