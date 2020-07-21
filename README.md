@@ -82,3 +82,15 @@ docker-compose restart buoy
 ```
 
 The service will be accessed from a web browser through the implicit port 80 or 443, for HTTP and HTTPS respectively, but Buoy will now know to connect to your service on the port you identified in the subdomain-port map file.
+
+### Setting destination service address
+
+Some web services are ran outside of Docker.  In those cases, you can explicitly map a Buoy subdomain to a destination address by creating a `subdomain-addr.local.map` file in the `buoy` root directory and mapping subdomains to ports like so:
+```nginx
+"host"     172.17.0.1;
+```
+
+You will need to restart buoy after making subdomain-addr mapping changes:
+```bash
+docker-compose restart buoy
+```
